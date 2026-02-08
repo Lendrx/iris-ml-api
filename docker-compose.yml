@@ -6,7 +6,7 @@ services:
     env_file:
       - .env
     volumes:
-      # Mount trained_models so models survive container restarts
+      # trained_models mounten, damit Modelle Container-Neustarts überdauern
       - ./trained_models:/app/trained_models
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
